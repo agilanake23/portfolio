@@ -1,0 +1,241 @@
+/* --------- GLOBAL BODY --------- */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at bottom, #0a0a0a, #000);
+  color: #e2e8f0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Space Stars (Animated Dots) */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(2px 2px at 10px 10px, #fff, transparent),
+              radial-gradient(2px 2px at 50px 50px, #fff, transparent),
+              radial-gradient(2px 2px at 90px 90px, #fff, transparent);
+  background-size: 100px 100px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+}
+
+/* --------- HEADER --------- */
+header {
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(10px);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #60a5fa;
+  text-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6;
+}
+
+/* Shine Effect in Header */
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  transform: skewX(-20deg);
+  animation: shine 8s linear infinite;
+}
+@keyframes shine {
+  0% { left: -50%; }
+  50% { left: 120%; }
+  100% { left: 120%; }
+}
+
+/* --------- NAVIGATION --------- */
+nav {
+  margin-top: 1.2rem;
+}
+nav a {
+  color: #d1d5db;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #60a5fa;
+  transition: width 0.3s ease;
+}
+nav a:hover {
+  color: #fff;
+}
+nav a:hover::after {
+  width: 100%;
+}
+
+/* --------- CONTAINER --------- */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* --------- SECTIONS WITH POPUP --------- */
+section {
+  margin-bottom: 3rem;
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: popup 0.8s ease forwards;
+}
+
+@keyframes popup {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --------- HEADINGS --------- */
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #60a5fa, #f472b6, #facc15);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGlow 3s infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 5px #60a5fa, 0 0 15px #3b82f6; }
+  100% { text-shadow: 0 0 10px #f472b6, 0 0 25px #facc15; }
+}
+
+/* --------- PROJECT CARDS --------- */
+.project {
+  background: rgba(30, 30, 30, 0.9);
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border-left: 4px solid #60a5fa;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.project:hover {
+  background: rgba(50, 50, 50, 0.9);
+  transform: scale(1.02);
+}
+
+/* --------- STYLISH BUTTONS --------- */
+button, .view-btn, .download-btn, a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 8px 5px 0 0;
+  background: linear-gradient(45deg, #60a5fa, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+button:hover, .view-btn:hover, .download-btn:hover, a.button:hover {
+  background: linear-gradient(45deg, #3b82f6, #60a5fa);
+  box-shadow: 0 0 10px #3b82f6, 0 0 20px #60a5fa;
+  transform: scale(1.05);
+}
+
+/* Button Shine Animation */
+button::before, .view-btn::before, .download-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-25deg);
+  transition: 0.5s;
+}
+button:hover::before, .view-btn:hover::before, .download-btn:hover::before {
+  left: 125%;
+}
+
+/* --------- FOOTER --------- */
+footer {
+  background: #000;
+  color: #9ca3af;
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+}
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.certificate {
+  background: rgba(30, 30, 30, 0.8);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.certificate:hover {
+  background: rgba(50, 50, 50, 0.9);
+  transform: scale(1.02);
+}
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.certificate {
+  background: rgba(30, 30, 30, 0.9);
+  padding: 1.5rem;
+  border-left: 4px solid #60a5fa;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.certificate:hover {
+  background: rgba(50, 50, 50, 0.9);
+  transform: scale(1.03);
+}
+
