@@ -238,4 +238,38 @@ footer {
   background: rgba(50, 50, 50, 0.9);
   transform: scale(1.03);
 }
+header h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.container {
+  padding: 1rem 1.2rem;
+}
+/* --------- INDIVIDUAL BUTTON HOVERS --------- */
+
+/* Internship Button */
+.internship-btn:hover {
+  background: linear-gradient(45deg, #ec4899, #f472b6);
+  box-shadow: 0 0 10px #ec4899, 0 0 20px #f472b6;
+}
+
+/* Education Button */
+.education-btn:hover {
+  background: linear-gradient(45deg, #22d3ee, #3b82f6);
+  box-shadow: 0 0 10px #22d3ee, 0 0 20px #3b82f6;
+}
+
+/* Contact Button */
+.contact-btn:hover {
+  background: linear-gradient(45deg, #34d399, #10b981);
+  box-shadow: 0 0 10px #34d399, 0 0 20px #10b981;
+}
+
+.internship-btn, .education-btn, .contact-btn {
+  transition: all 0.4s ease;
+}
 
